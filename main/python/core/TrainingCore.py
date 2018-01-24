@@ -4,6 +4,12 @@
 import tensorflow as tf
 import pdb, argparse, logging
 
+def evaluate():
+    return
+
+def train():
+    return
+
 def tryLogger():
     logger.warning("AAA")
     logger.error("AAA")

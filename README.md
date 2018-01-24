@@ -7,8 +7,12 @@ Last Modified: January 2018
 ## Features
 1. Implemented following machine learning algorithms for stock data prediction:
     - Multi-layer Perceptron
+        - Regularizations
+        - Activation Functions
     - Naive Bayes Classifier
     - Reinforcement Learning
+    with following steps:
+    - Cross Validation
 2. Testing script for each individual module.
 3. API for communication with Jave GUI.
 
