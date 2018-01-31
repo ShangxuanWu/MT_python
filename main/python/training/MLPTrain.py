@@ -1,68 +1,53 @@
 # Shangxuan Wu @ Myraid of Things
 # 20 Jun 2017
 
-# import tensorflow as tf
-# import pdb, sys, argparse
-
-# def evaluate():
-#     pass
-
-# def train():
-"""Creates binary synthetic datasets
-    Args:
-        name: str, name of the dataset to generate
-        n_samples: int, number of datapoints to generate
-        noise: float or None, standard deviation of the Gaussian noise added
-        seed: int or None, seed for noise
-    Returns:
-        Shuffled features and labels for given synthetic dataset of type `base.Dataset`
-    Raises:
-        ValueError: Raised if `name` not found
-    Note:
-        - This is a generic synthetic data generator - individual generators might have more parameters! See documentation for individual parameters
-        - Note that the `noise` parameter uses `numpy.random.normal` and depends on `numpy`'s seed
-    TODO:
-        - Support multiclass datasets
-        - Need shuffling routine. Currently synthetic datasets are reshuffled to avoid train/test correlation, but that hurts reprodusability
-"""
-#     pass
-
-# def main():
-#     pass
-
-# if __name__ == "__main__":
-#     pass
-
-
-# should support the following features:
-'''
+''' TODO: support the following features:
 - crossvalidation
 - no regularization
 - activation function
 '''
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
-import os
+from __future__ import absolute_import, division, print_function
 from six.moves.urllib.request import urlopen
-
-import numpy as np
 import tensorflow as tf
+import numpy as np
+import sys, argparse, os
 import pdb
 
-# Data sets
-DATASET_PATH = "dataset"
+class MLPTrain(BaseTrain):
+    def __init__(self):
+        # build 3 layer DNN with 10, 20, 10 units respectively
+        this.classifier = tf.estimator.DNNClassifier(feature_columns=feature_columns,
+                                                hidden_units=[10, 20, 10],
+                                                n_classes=3,
+                                                model_dir="/tmp/iris_model")
+        return
 
-IRIS_TRAINING = os.path.join(DATASET_PATH, "iris_training.csv")
-IRIS_TRAINING_URL = "http://download.tensorflow.org/data/iris_training.csv"
+    def evaluate(self):
+        assert this.classifier is not None, "MLPTrain class is not initialized properly. Please check code."        
+        # evaluate accuracy
+        accuracy_score = this.classifier.evaluate(input_fn=test_input_fn)["accuracy"]
+        print("\nTest Accuracy: {0:f}\n".format(accuracy_score))
+        # log here
+        
+        return
 
-IRIS_TEST = os.path.join(DATASET_PATH, "iris_test.csv")
-IRIS_TEST_URL = "http://download.tensorflow.org/data/iris_test.csv"
-
+    def train(self, data, label):
+        assert this.classifier is not None, "MLPTrain class is not initialized properly. Please check code."
+        # train model
+        this.classifier.train(input_fn=train_input_fn, steps=2000)
+        return
 
 def main():
+    # Data sets
+    DATASET_PATH = "dataset"
+
+    IRIS_TRAINING = os.path.join(DATASET_PATH, "iris_training.csv")
+    IRIS_TRAINING_URL = "http://download.tensorflow.org/data/iris_training.csv"
+
+    IRIS_TEST = os.path.join(DATASET_PATH, "iris_test.csv")
+    IRIS_TEST_URL = "http://download.tensorflow.org/data/iris_test.csv"
+
     # If the training and test sets aren't stored locally, download them.
     if not os.path.exists(IRIS_TRAINING):
         raw = urlopen(IRIS_TRAINING_URL).read()
@@ -87,11 +72,7 @@ def main():
     # Specify that all features have real-value data
     feature_columns = [tf.feature_column.numeric_column("x", shape=[4])]
 
-    # Build 3 layer DNN with 10, 20, 10 units respectively.
-    classifier = tf.estimator.DNNClassifier(feature_columns=feature_columns,
-                                            hidden_units=[10, 20, 10],
-                                            n_classes=3,
-                                            model_dir="/tmp/iris_model")
+    
     # Define the training inputs
     train_input_fn = tf.estimator.inputs.numpy_input_fn(
         x={"x": np.array(training_set.data)},
@@ -99,20 +80,12 @@ def main():
         num_epochs=None,
         shuffle=True)
 
-    # Train model.
-    classifier.train(input_fn=train_input_fn, steps=2000)
-
     # Define the test inputs
     test_input_fn = tf.estimator.inputs.numpy_input_fn(
         x={"x": np.array(test_set.data)},
         y=np.array(test_set.target),
         num_epochs=1,
         shuffle=False)
-
-    # Evaluate accuracy.
-    accuracy_score = classifier.evaluate(input_fn=test_input_fn)["accuracy"]
-
-    print("\nTest Accuracy: {0:f}\n".format(accuracy_score))
 
     # Classify two new flower samples.
     new_samples = np.array(
