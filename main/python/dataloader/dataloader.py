@@ -1,20 +1,28 @@
 # Copyright Shangxuan Wu @ Myriad of Things
 # Last Modified: 24 Jan 2018
 
-from main.python.dataloader import DataLoaderConfig
+from main.resource.dataloader import DataLoaderConfig
 from main.python.utils import fileUtils
 
-def checkFolderValid(fd):
-    # assert 3 files exists in the given folder
-    for fn in DataLoaderConfig.fns:
-        if not fileUtils.isFileExists(os.path.join(fd, fn)):
-            return False
-    return True
+class DataLoader:
+    # assert 3 files exists for the given timestring exist in the given folder    
+    def checkMTInitFilesValid(self, fd, ts):
+        for suffix in DataLoaderConfig.init_fns:
+            if not fileUtils.isFileExists(os.path.join(fd, ts + '.' + suffix)):
+                return False
+        return True
 
-def loadData(fd):
-    assert checkFolderValid(fd)
+    # assert 5 files (3 + model + log) exist for the given timestring exist in folder
+    def checkMTFullFilesValid(self, fd, ts):
+        for suffix in DataLoaderConfig.full_fns:
+            if not fileUtils.isFileExists(os.path.join(fd, ts + '.' + suffix)):
+                return False
+        return True
 
-    return
+    def loadData(fd):
+        assert checkFolderValid(fd)
+
+        return
 
 
 

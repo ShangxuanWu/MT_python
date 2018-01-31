@@ -1,7 +1,7 @@
 # CopyRight Shangxuan Wu @ Myriad of Things
 # File Created in Jan 2018
 
-def sendModel():
+def sendModel(path):
     return
 
 def receiveModel():

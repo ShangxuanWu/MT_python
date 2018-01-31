@@ -4,14 +4,15 @@
 import tensorflow as tf
 import pdb
 
-def evaluate():
-    pass
+class MLPTest(BaseTest):
+    def evaluate():
+        pass
 
-def train():
-    pass
+    def train():
+        pass
 
-def main():
-    pass
+    def main():
+        pass
 
 if __name__ == "__main__":
     main()

@@ -1,3 +1,0 @@
-fns = [ 'data',
-        'metadata',
-        'dataheader']
