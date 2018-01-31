@@ -36,6 +36,7 @@ class MLPTrain(BaseTrain):
         assert this.classifier is not None, "MLPTrain class is not initialized properly. Please check code."
         # train model
         this.classifier.train(input_fn=train_input_fn, steps=2000)
+        # should call the update function here
         return
 
 def main():

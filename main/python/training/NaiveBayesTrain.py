@@ -1,7 +1,24 @@
 # Shangxuan Wu @ Myraid of Things
 # 23 Jun 2017
 
+from sklearn.naive_bayes import GaussianNB
 import pdb
+
+class NaiveBayesTrain(BaseTrain):
+    def __init__(self):
+        self.gnb = GaussianNB()
+        return
+
+    def evaluate(self):
+        y_pred = self.gnb.predict(iris.data)
+        print("Number of mislabeled points out of a total %d points : %d"
+            % (iris.data.shape[0],(iris.target != y_pred).sum()))
+        return
+
+    def train(self):
+        assert self.gnb is not None, "NaiveBayesTrain class is not initialized properly. Please check code."
+        self.gnb.fit(iris.data, iris.target)
+        return
 
 def main():
     from sklearn import datasets
@@ -9,13 +26,8 @@ def main():
     # format of data:
     # iris.data: N * 4 np.array
     # iris.target: N * 1 np.array
-    from sklearn.naive_bayes import GaussianNB
-    gnb = GaussianNB()
+    
     # this one can perform online update
-    y_pred = gnb.fit(iris.data, iris.target).predict(iris.data)
-    pdb.set_trace()
-    print("Number of mislabeled points out of a total %d points : %d"
-        % (iris.data.shape[0],(iris.target != y_pred).sum()))
     return
 
 if __name__ == "__main__":
