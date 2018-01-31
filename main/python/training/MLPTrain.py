@@ -15,7 +15,8 @@ import sys, argparse, os
 import pdb
 
 class MLPTrain(BaseTrain):
-    def __init__(self):
+    def __init__(self, path, time_str):
+        super().__init__(path, time_str)
         # build 3 layer DNN with 10, 20, 10 units respectively
         this.classifier = tf.estimator.DNNClassifier(feature_columns=feature_columns,
                                                 hidden_units=[10, 20, 10],

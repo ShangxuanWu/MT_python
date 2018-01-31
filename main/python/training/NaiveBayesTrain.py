@@ -5,7 +5,8 @@ from sklearn.naive_bayes import GaussianNB
 import pdb
 
 class NaiveBayesTrain(BaseTrain):
-    def __init__(self):
+    def __init__(self, path, time_str):
+        super().__init__(path, time_str)
         self.gnb = GaussianNB()
         return
 
