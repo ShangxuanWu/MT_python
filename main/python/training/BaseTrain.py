@@ -1,11 +1,15 @@
 # Shangxuan Wu @ Myraid of Things
 # 31 Jun 2017
 
-# add path for root ('tf_code/') directory
-import sys, pdb
+# add path for root ('tf_code/') directory if not in sys.path
+import sys
 from os import path
-sys.path.append(path.dirname(path.dirname(path.dirname(path.dirname(path.abspath(__file__))))))
+root_path = path.dirname(path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
+if root_path not in sys.path
+    sys.path.append(root_path)
+
 from main.python.utils import fileUtils
+from main.python.dataloader import DataLoader
 from main.resource.dataloader import DataLoaderConfig
 import pdb
 import os, logging
