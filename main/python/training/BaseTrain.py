@@ -1,4 +1,6 @@
-from ..utils import fileUtils
+import sys
+sys.path.append(os.path.abspath("../utils"))
+import fileUtils
 import main.resource.dataloader.DataLoaderConfig
 import pdb
 import os, logging
