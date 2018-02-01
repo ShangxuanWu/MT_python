@@ -1,7 +1,12 @@
-import sys
-sys.path.append(os.path.abspath("../utils"))
-import fileUtils
-import main.resource.dataloader.DataLoaderConfig
+# Shangxuan Wu @ Myraid of Things
+# 31 Jun 2017
+
+# add path for root ('tf_code/') directory
+import sys, pdb
+from os import path
+sys.path.append(path.dirname(path.dirname(path.dirname(path.dirname(path.abspath(__file__))))))
+from main.python.utils import fileUtils
+from main.resource.dataloader import DataLoaderConfig
 import pdb
 import os, logging
 

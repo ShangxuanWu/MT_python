@@ -24,6 +24,9 @@ class DataLoader:
 
         return
 
+    def loadJSONData(fd):
+        return
+
 
 
 if __name__ == "__main__":

@@ -19,3 +19,6 @@ def getTimeStamp():
 def getTimeString(ts):
     time_string = datetime.datetime.fromtimestamp(ts).strftime('%Y%m%d_%H%M%S')
     return time_string
+
+def getFileNameWithoutSuffix(path, time_str):
+    return os.path.join(path, time_str)
