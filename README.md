@@ -27,6 +27,12 @@ to install all the prerequisites for this Repo.
 Code is tested under MacOS 10.13. Should be working fine under Ubuntu, but not tested under Windows.
 
 ## Usage
+Run
+```
+python AddPath.py
+```
+first, then:
+
 Run 
 ```
 python test/python/core/TrainingCore.py

@@ -13,16 +13,22 @@ import tensorflow as tf
 import numpy as np
 import sys, argparse, os
 import pdb
+import BaseTrain
 
 class MLPTrain(BaseTrain):
     def __init__(self, path, time_str):
-        super().__init__(path, time_str)
+        super().__init__(path, time_str, __name__)
         # build 3 layer DNN with 10, 20, 10 units respectively
         this.classifier = tf.estimator.DNNClassifier(feature_columns=feature_columns,
                                                 hidden_units=[10, 20, 10],
                                                 n_classes=3,
                                                 model_dir="/tmp/iris_model")
         return
+
+    def parseParameters(self):
+
+
+        return params
 
     def evaluate(self):
         assert this.classifier is not None, "MLPTrain class is not initialized properly. Please check code."        
@@ -42,7 +48,7 @@ class MLPTrain(BaseTrain):
 
 def main():
     # Data sets
-    DATASET_PATH = "dataset"
+    DATASET_PATH = "python/resource/training/MLPTrain/"
 
     IRIS_TRAINING = os.path.join(DATASET_PATH, "iris_training.csv")
     IRIS_TRAINING_URL = "http://download.tensorflow.org/data/iris_training.csv"

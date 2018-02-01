@@ -6,13 +6,13 @@ import pdb
 
 class NaiveBayesTrain(BaseTrain):
     def __init__(self, path, time_str):
-        super().__init__(path, time_str)
+        super().__init__(path, time_str, __name__)
         self.gnb = GaussianNB()
         return
 
     def evaluate(self):
         y_pred = self.gnb.predict(iris.data)
-        print("Number of mislabeled points out of a total %d points : %d"
+        this.logger.info("Number of mislabeled points out of a total %d points : %d"
             % (iris.data.shape[0],(iris.target != y_pred).sum()))
         return
 
@@ -28,7 +28,9 @@ def main():
     # iris.data: N * 4 np.array
     # iris.target: N * 1 np.array
     
-    # this one can perform online update
+    nb_train = NaiveBayesTrain()
+    nb_train.train()
+    nb_train.evaluate()
     return
 
 if __name__ == "__main__":
