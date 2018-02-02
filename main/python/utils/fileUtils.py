@@ -8,15 +8,21 @@ root_path = path.dirname(path.dirname(path.dirname(path.dirname(path.abspath(__f
 if root_path not in sys.path
     sys.path.append(root_path)
 
-import os, pdb, time, datetime
+import os, pdb, time, datetime, shutil
 import numpy as np
-import main.resource.dataloader.DataLoaderConfig
 
 def isFileExists(file_path):
     return os.path.isfile(file_path)
 
 def isFolderExists(fd_path):
     return os.path.isdir(fd_path)
+
+# make folder if it does not exist, otherwise clear folder
+def makeOrClearFolder(fd_path):
+    if isFolderExists(fd_path):
+        shutil.rmtree(fd_path)
+    os.makedirs(directory)
+    return
 
 # get time stamp in UTC
 def getTimeStamp():
@@ -28,6 +34,11 @@ def getFileExt(full_path):
     filename, file_extension = os.path.splitext(full_path)
     return file_extension
 
+# get folder name from a given path
+def getFolderNameFromFolderPath(fd_path):
+    assert isFolderExists(fd_path), ("Given folder path '%s' does not exist." % fd_path )
+    return os.path.basename(fd_path)
+
 # get time string using time stamp from getTimeStamp()
 # format: '20180131_013256'
 def getTimeString(ts):
@@ -36,31 +47,3 @@ def getTimeString(ts):
 
 def getFileNameWithoutSuffix(path, time_str):
     return os.path.join(path, time_str)
-
-# load data header file given path, basically useless
-def loadDataHeaderFile(path):
-    dataheader_path = path + full_fns[0]
-    assert isFileExists(dataheader_path)
-    return
-
-# load data file given path
-def loadDataFile(path):
-    data = np.genfromtxt(path + full_fns[], delimiter=',')
-    return
-
-# load log file given path
-def loadLogFile(path):
-    return
-
-# load model file given path
-def loadModelFolder(path):
-    
-    assert isFolderExists(modelfolder_path)
-    # how to switch between different model files?
-
-    return
-
-def loadConfigFile(path):
-    return 
-
-def 

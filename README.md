@@ -27,6 +27,18 @@ to install all the prerequisites for this Repo.
 Code is tested under MacOS 10.13. Should be working fine under Ubuntu, but not tested under Windows.
 
 ## Usage
+We suppose that Java frontend would create the following three files for us:
+1. 20180131_235959/data_header
+2. 20180131_235959/train_data
+3. 20180131_235959/train_label
+4. 20180131_235959/test_data
+5. 20180131_235959/config
+
+and with the training process we would get follwing files:
+
+6. 20180131_235959/model
+7. 20180131_235959/train_log
+
 Run
 ```
 python AddPath.py
