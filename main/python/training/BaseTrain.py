@@ -24,7 +24,8 @@ class BaseTrain():
 
         # check three necessary files exist
         self.data_loader = DataLoader(self.root_fd)
-        assert self.data_loader.hasNecessaryTrainFiles()
+        # already checked file existence
+        #assert self.data_loader.hasNecessaryTrainFiles()
         
         # create folders
         self.model_fd = os.path.join(self.root_fd, model_fd_basename)

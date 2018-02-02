@@ -8,7 +8,7 @@ root_path = path.dirname(path.dirname(path.dirname(path.dirname(path.abspath(__f
 if root_path not in sys.path
     sys.path.append(root_path)
 
-import os, pdb, time, datetime, shutil
+import os, pdb, time, datetime, shutil, json
 import numpy as np
 
 def isFileExists(file_path):
@@ -47,3 +47,16 @@ def getTimeString(ts):
 
 def getFileNameWithoutSuffix(path, time_str):
     return os.path.join(path, time_str)
+
+# loading basic file format: csv separated by ','
+def loadCSVFile(full_path):
+    assert isFileExists(full_path), ("CSV file %s does not exist!" % full_path)
+    data = np.genfromtxt(full_path, delimiter=',')
+    return data
+
+# loading basic file format: JSON
+def loadJSONFile(full_path):
+    assert isFileExists(full_path), ("JSON file %s does not exist!" % full_path)
+    with open(full_path) as json_data:
+        d = json.load(json_data)
+    return d
