@@ -65,6 +65,10 @@ For testing each individual module, please see testing script for each individua
 4. LSTM
 
 
+## Format of `config` File
+The `config` file is in JSON format. Please follow the following guideline for creating a `config` file.
+1. 
+
 ## To-Do List
 1. Test code for each individual model
 2. Adapt to the communication API from Java side.
