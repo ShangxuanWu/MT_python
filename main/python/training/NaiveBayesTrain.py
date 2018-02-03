@@ -32,18 +32,3 @@ class NaiveBayesTrain(BaseTrain):
         train_data, train_label = self.data_loader.loadTrainData()
         self.gnb.fit(iris.data, iris.target)
         return
-
-def main():
-    from sklearn import datasets
-    iris = datasets.load_iris()
-    # format of data:
-    # iris.data: N * 4 np.array
-    # iris.target: N * 1 np.array
-    
-    nb_train = NaiveBayesTrain()
-    nb_train.train()
-    nb_train.evaluate()
-    return
-
-if __name__ == "__main__":
-    main()
