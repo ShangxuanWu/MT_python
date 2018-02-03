@@ -47,10 +47,17 @@ class DataLoader:
         assert isFileExists(dataheader_path)
         return
 
-    # split train data into train and eval
+    # split train data into train and validation sets
+    # suppose it is 2d data
     def splitTrainData(self, data, label):
-        
-        return train_data, train_label, eval_data, eval_label
+        # TODO: determine how we can 
+        num = self.data.shape[0]
+        portion = int(num * train_val_split_portion)
+        train_data = data[:portion, :]
+        train_label = label[:portion, :]
+        val_data = data[portion:, :]
+        val_label = label[portion:, :]
+        return train_data, train_label, val_data, val_label
 
     def loadTrainData(self):
         data = fileUtils.loadCSVFile(self.train_data_path)

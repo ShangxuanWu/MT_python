@@ -22,3 +22,5 @@ full_fns = [
         train_log_basename,
         model_fd_basename,
         ]
+
+train_val_split_portion = 0.9

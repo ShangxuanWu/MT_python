@@ -21,14 +21,17 @@ class NaiveBayesTrain(BaseTrain):
         return
 
     def evaluate(self):
-        self.data_loader.
+        self.data_loader.loadT
         y_pred = self.gnb.predict(iris.data)
         this.logger.info("Number of mislabeled points out of a total %d points : %d"
             % (iris.data.shape[0],(iris.target != y_pred).sum()))
         return
 
     def train(self):
-        assert self.gnb is not None, "NaiveBayesTrain class is not initialized properly. Please check code."
+        try:
+            assert self.gnb is not None
+        except Exception:
+            logging.exception("NaiveBayesTrain class is not initialized properly. Please check code.")
         train_data, train_label = self.data_loader.loadTrainData()
         self.gnb.fit(iris.data, iris.target)
         return
