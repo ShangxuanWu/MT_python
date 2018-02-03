@@ -89,7 +89,3 @@ class DataLoader:
         # do some post-processing
 
         return 
-
-
-if __name__ == "__main__":
-    pass
