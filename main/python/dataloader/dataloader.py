@@ -47,10 +47,16 @@ class DataLoader:
         assert isFileExists(dataheader_path)
         return
 
+    # split train data into train and eval
+    def splitTrainData(self, data, label):
+        
+        return train_data, train_label, eval_data, eval_label
+
     def loadTrainData(self):
         data = fileUtils.loadCSVFile(self.train_data_path)
         label = fileUtils.loadCSVFile(self.train_label_path)
         # TODO: should we do rounding for data?
+        train_data, train_label, eval_data, eval_label = splitTrainData(data, label)
         return data, label
 
     def loadTestData(self):

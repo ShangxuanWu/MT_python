@@ -14,7 +14,8 @@ class BaseTest():
         return
 
     def loadModel(self):
-        raise NotImplementedError()
+        raise NotImplementedError
 
     def forward(self):
-        return result
+        raise NotImplementedError
+        return

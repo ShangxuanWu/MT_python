@@ -52,15 +52,18 @@ class BaseTrain():
         
         return
     
-    # this is a abstract function
+    # following are some abstract functions
+    def parseParames(self):
+        raise NotImplementedError
+
     def train(self):
-        raise NotImplementedError()
+        raise NotImplementedError
 
     def evaluate(self):
-        raise NotImplementedError()
+        raise NotImplementedError
 
     def send(self):
-        return
+        raise NotImplementedError
 
     def writeLog(self, str):
         fn = os.path.join(self.path, self.ts + '.')

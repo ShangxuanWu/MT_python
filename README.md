@@ -58,6 +58,12 @@ for testing example.
 
 For testing each individual module, please see testing script for each individual module in `test` folder.
 
+## Parameter List for Different Methods
+1. Multi-layer Perceptron
+2. Naive Bayes
+3. RNN
+4. LSTM
+
 
 ## To-Do List
 1. Test code for each individual model
