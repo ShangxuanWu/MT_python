@@ -28,10 +28,7 @@ class NaiveBayesTrain(BaseTrain):
         return
 
     def train(self):
-        try:
-            assert self.gnb is not None
-        except Exception:
-            logging.exception("NaiveBayesTrain class is not initialized properly. Please check code.")
+        assertToLogger(self.gnb is not None, "NaiveBayesTrain class is not initialized properly. Please check code.")
         train_data, train_label = self.data_loader.loadTrainData()
         self.gnb.fit(iris.data, iris.target)
         return

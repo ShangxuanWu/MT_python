@@ -65,8 +65,13 @@ class BaseTrain():
     def send(self):
         raise NotImplementedError
 
-    def writeLog(self, str):
-        fn = os.path.join(self.path, self.ts + '.')
+    # make assertion to logger instead of to screen
+    def assertToLogger(self, assertion, err_str):
+        try:
+            assert assertion
+        except AssertionError as err:
+            self.logger.exception(err_str)
+            raise err
         return
 
     def submitModel(self):
