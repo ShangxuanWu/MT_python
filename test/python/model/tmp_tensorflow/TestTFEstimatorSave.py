@@ -28,7 +28,7 @@ print("TensorFlow version: {}".format(tf_version))
 assert "1.4" <= tf_version, "TensorFlow r1.4 or later is needed"
 
 # Windows users: You only need to change PATH, rest is platform independent
-PATH = "./ckpt"
+PATH = "./test/python/model/tmp_tensorflow/ckpt"
 
 # Fetch and store Training and Test dataset files
 PATH_DATASET = PATH + os.sep + "dataset"
