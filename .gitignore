@@ -104,3 +104,5 @@ ENV/
 *.pyc
 
 *.ckpt.*
+
+test/python/model/ckpt/*
