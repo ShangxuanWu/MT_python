@@ -19,16 +19,24 @@ class MLPTrain(BaseTrain):
     def __init__(self, path, time_str):
         super().__init__(path, time_str, __name__)
         # build 3 layer DNN with 10, 20, 10 units respectively
-        this.classifier = tf.estimator.DNNClassifier(feature_columns=feature_columns,
-                                                hidden_units=[10, 20, 10],
-                                                n_classes=3,
-                                                model_dir="/tmp/iris_model")
+        this.classifier = tf.estimator.DNNClassifier(
+            feature_columns=feature_columns,
+            hidden_units=[10, 20, 10],
+            n_classes=3,
+            model_dir=self.model_fd
+            )
         return
 
     def parseParameters(self):
 
 
         return params
+
+    def loadModel(self):
+        return
+    
+    def saveModel(self):
+        return
 
     def evaluate(self):
         assert this.classifier is not None, "MLPTrain class is not initialized properly. Please check code."        
@@ -46,4 +54,6 @@ class MLPTrain(BaseTrain):
         # should call the update function here
         return
 
-    def 
+    def forward(self):
+
+        return
