@@ -4,16 +4,30 @@
 import tensorflow as tf
 import pdb, argparse, logging
 
+def getParams():
+    return params
+
 def evaluate():
     return
 
-def train():
+def train(params):
+    if params['AlgorithmType'] == 'MLP':
+
+    elif params['AlgorithmType'] == 'NB':
+        
+    else:
+        raise NotImplementedError
     return
 
 def tryLogger():
     logger.warning("AAA")
     logger.error("AAA")
     pass
+
+
+
+
+
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)

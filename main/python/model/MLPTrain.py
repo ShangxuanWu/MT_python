@@ -5,6 +5,35 @@
 - crossvalidation
 - no regularization
 - activation function
+
+Java code Reference:
+
+case MT_STRATEGY_MLP:
+            tradingConfigDto.setMlpNumberOfEpochs(modelLearningProperties.getMlpNumberOfEpochs());
+            tradingConfigDto.setMlpNumberOfLayers(modelLearningProperties.getMlpNumberOfLayers());
+            tradingConfigDto.setMlpNumberOfHiddenLayers(modelLearningProperties.getMlpNumberOfHiddenLayers());
+            tradingConfigDto.setMlpNumberOfInputNodes(modelLearningProperties.getMlpNumberOfInputNodes());
+            tradingConfigDto.setMlpNumberOfHiddenNodes(modelLearningProperties.getMlpHiddenNodesStr());
+            tradingConfigDto.setMlpNumberOfOutputNodes(modelLearningProperties.getMlpNumberOfOutputNodes());
+            tradingConfigDto.setMlpLearningRate(modelLearningProperties.getMlpLearningRate());
+            tradingConfigDto.setMlpNumberOfIterations(modelLearningProperties.getMlpNumberOfIterations());
+            tradingConfigDto.setMlpMaximumErrors(modelLearningProperties.getMlpMaximumErrors());
+            tradingConfigDto.setMlpMinimumAccuracy(modelLearningProperties.getMlpMinimumAccuracy());
+            tradingConfigDto.setMlpPredictionPeriod(modelLearningProperties.getMlpPredictionPeriod());
+            tradingConfigDto.setMlpEfficientPercentage(modelLearningProperties.getMlpEfficientPercentage());
+            tradingConfigDto.setMlpDataProcessMode(modelLearningProperties.getMlpDataProcessMode());
+
+            if (tradingConfigDto.getMlpDataProcessMode().equals(MT_STRATEGY_MLP_DATA_PROCESS_MODE_PARTITION)
+                    || tradingConfigDto.getMlpDataProcessMode()
+                            .equals(MT_STRATEGY_MLP_DATA_PROCESS_MODE_PARTITIONALL)) {
+                tradingConfigDto.setMlpPartitionSize(modelLearningProperties.getMlpPartitionSize());
+            }
+
+            tradingConfigDto.setMlpClassifierBuildingMode(modelLearningProperties.getMlpClassifierBuildingMode());
+            tradingConfigDto.setMlpSeed(modelLearningProperties.getMlpSeed());
+
+            break;
+
 '''
 
 from __future__ import absolute_import, division, print_function

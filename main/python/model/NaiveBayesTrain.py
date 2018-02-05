@@ -1,6 +1,21 @@
 # Shangxuan Wu @ Myraid of Things
 # 23 Jun 2017
 
+'''
+Jave code reference:
+
+case MT_STRATEGY_NAIVE_BAYES:
+            tradingConfigDto.setNbPredictionPeriod(modelLearningProperties.getNbPredictionPeriod());
+            tradingConfigDto
+                    .setNbPositiveCorrelationCoefficient(modelLearningProperties.getNbPositiveCorrelationCoefficient());
+            tradingConfigDto
+                    .setNbNegativeCorrelationCoefficient(modelLearningProperties.getNbNegativeCorrelationCoefficient());
+
+            break;
+
+'''
+
+
 # add path for root ('tf_code/') directory if not in sys.path
 import sys
 from os import path
