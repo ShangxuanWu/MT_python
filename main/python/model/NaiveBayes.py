@@ -23,13 +23,14 @@ root_path = path.dirname(path.dirname(path.dirname(path.dirname(path.abspath(__f
 if root_path not in sys.path
     sys.path.append(root_path)
 
-from main.python.utils import FileUtils
 from sklearn.naive_bayes import GaussianNB
-from main.python.dataloader import DataLoader
 import pdb
 import cPickle
+from main.python.utils import FileUtils
+from main.python.dataloader import DataLoader
+import Base
 
-class NaiveBayesTrain(BaseTrain):
+class NaiveBayesModel(BaseModel):
     def __init__(self, fd_path):
         super().__init__(path, fd_path)
         self.gnb = GaussianNB() 

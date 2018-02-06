@@ -42,12 +42,33 @@ import tensorflow as tf
 import numpy as np
 import sys, argparse, os
 import pdb
-import BaseTrain
+from main.python.utils import FileUtils
+from main.python.dataloader import DataLoader
+import Base
 
-class MLPTrain(BaseTrain):
+class MLPModel(BaseModel):
     def __init__(self, path, time_str):
         super().__init__(path, time_str, __name__)
-        # build 3 layer DNN with 10, 20, 10 units respectively
+        ''' 
+        Build 3 layer DNN with 10, 20, 10 units respectively.
+        The default construction parameters are
+
+        __init__(
+            hidden_units,
+            feature_columns,
+            model_dir=None,
+            n_classes=2,
+            weight_column=None,
+            label_vocabulary=None,
+            optimizer='Adagrad',
+            activation_fn=tf.nn.relu,
+            dropout=None,
+            input_layer_partitioner=None,
+            config=None
+        )
+
+        with self-adapting learning rates in AdaGrad.
+        '''
         self.classifier = tf.estimator.DNNClassifier(
             feature_columns=feature_columns,
             hidden_units=[10, 20, 10],

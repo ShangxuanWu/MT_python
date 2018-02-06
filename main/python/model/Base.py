@@ -15,7 +15,7 @@ import pdb
 import os, logging
 
 # this is actually an abstract class with no actual use
-class BaseTrain():
+class BaseModel():
     # init function for 
     def __init__(self, fd_path, child_class_name):
         # check path valid
