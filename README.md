@@ -1,7 +1,7 @@
 # MT Python code 
 Copyright Shangxuan Wu @ Myriads of Things
 
-Last Modified: January 2018
+Last Modified: Feb 2018
 
 
 ## Features
