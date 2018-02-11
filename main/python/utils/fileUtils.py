@@ -2,19 +2,18 @@
 # Created in Jan 2018
 
 # add path for root ('tf_code/') directory if not in sys.path
-import sys
-from os import path
-root_path = path.dirname(path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
+import sys, os
+root_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 if root_path not in sys.path
     sys.path.append(root_path)
 
 import os, pdb, time, datetime, shutil, json
 import numpy as np
 
-def isFileExists(file_path):
+def isFileExist(file_path):
     return os.path.isfile(file_path)
 
-def isFolderExists(fd_path):
+def isFolderExist(fd_path):
     return os.path.isdir(fd_path)
 
 # make folder if it does not exist, otherwise clear folder

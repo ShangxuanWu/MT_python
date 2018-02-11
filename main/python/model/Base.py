@@ -2,9 +2,8 @@
 # 31 Jun 2017
 
 # add path for root ('tf_code/') directory if not in sys.path
-import sys
-from os import path
-root_path = path.dirname(path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
+import sys, os
+root_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 if root_path not in sys.path
     sys.path.append(root_path)
 

@@ -36,6 +36,12 @@ case MT_STRATEGY_MLP:
 
 '''
 
+# add path for root ('tf_code/') directory if not in sys.path
+import sys, os
+root_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+if root_path not in sys.path
+    sys.path.append(root_path)
+
 from __future__ import absolute_import, division, print_function
 from six.moves.urllib.request import urlopen
 import tensorflow as tf
@@ -49,7 +55,7 @@ import Base
 class MLPModel(BaseModel):
     def __init__(self, path, time_str):
         super().__init__(path, time_str, __name__)
-        ''' 
+        '''[]
         Build 3 layer DNN with 10, 20, 10 units respectively.
         The default construction parameters are
 

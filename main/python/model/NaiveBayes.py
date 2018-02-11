@@ -15,11 +15,9 @@ case MT_STRATEGY_NAIVE_BAYES:
 
 '''
 
-
 # add path for root ('tf_code/') directory if not in sys.path
-import sys
-from os import path
-root_path = path.dirname(path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
+import sys, os
+root_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 if root_path not in sys.path
     sys.path.append(root_path)
 
@@ -35,12 +33,13 @@ class NaiveBayesModel(BaseModel):
         super().__init__(path, fd_path)
         self.gnb = GaussianNB() 
         self.data_loader = DataLoader(self.root_fd)
+        self.logger = 
         return
 
     def evaluate(self):
         self.data_loader.loadT
         y_pred = self.gnb.predict(iris.data)
-        this.logger.info("Number of mislabeled points out of a total %d points : %d"
+        self.logger.info("Number of mislabeled points out of a total %d points : %d"
             % (iris.data.shape[0],(iris.target != y_pred).sum()))
         return
 
