@@ -7,7 +7,7 @@ root_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.p
 if root_path not in sys.path
     sys.path.append(root_path)
 
-from main.python.utils import FileUtils
+from main.python.utils import FileUtils, LogUtils
 from main.python.dataloader import DataLoader
 from main.resource.dataloader import DataLoaderConfig
 import pdb

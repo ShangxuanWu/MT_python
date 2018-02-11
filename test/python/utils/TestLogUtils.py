@@ -12,7 +12,7 @@ if root_path not in sys.path:
     sys.path.append(root_path)
 
 import logging, pdb
-from main.python.utils import fileUtils
+from main.python.utils import FileUtils
 
 # Variables
 output_file_name = 'test/python/utils/TestLogUtilsResult.txt'
