@@ -15,7 +15,7 @@ import logging, pdb
 from main.python.utils import fileUtils
 
 # Variables
-output_file_name = 'test/python/model/TestLoggerResult.txt'
+output_file_name = 'test/python/utils/TestLogUtilsResult.txt'
 
 # Delete if exist
 fileUtils.deleteFileIfExist(output_file_name)

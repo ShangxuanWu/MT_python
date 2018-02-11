@@ -107,4 +107,4 @@ ENV/
 
 test/python/model/ckpt/*
 
-TestLoggerResult.txt
+TestLogUtilsResult.txt
