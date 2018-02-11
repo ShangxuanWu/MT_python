@@ -25,8 +25,8 @@ class Communication:
     def sendModel(self, time_string, dst, delete_original=False):
         src = os.path.join(self.root, time_string)
         # If the destination exists:
-        if FileUtils.isFolderExist(dst)
-
+        if FileUtils.isFolderExist(dst):
+                
             return False
 
         if delete_original:

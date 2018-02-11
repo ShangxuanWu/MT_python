@@ -4,10 +4,10 @@
 # add path for root ('tf_code/') directory if not in sys.path
 import sys, os
 root_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-if root_path not in sys.path
+if root_path not in sys.path:
     sys.path.append(root_path)
 
-import os, pdb, time, datetime, shutil, json
+import pdb, time, datetime, shutil, json
 import numpy as np
 
 def isFileExist(file_path):
@@ -23,12 +23,19 @@ def makeOrClearFolder(fd_path):
     os.makedirs(directory)
     return
 
+# Delete the file if it exists
+def deleteFileIfExist(fn):
+    if isFileExist(fn):
+        os.remove(fn)
+        print("File %s exists. Deleted!")
+    return
+
 # get time stamp in UTC
 def getTimeStamp():
     time_stamp = time.time()
     return time_stamp
 
-def getFileExt(full_path):
+def getFileExtension(full_path):
     assert isFileExists()
     filename, file_extension = os.path.splitext(full_path)
     return file_extension

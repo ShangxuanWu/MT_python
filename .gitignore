@@ -106,3 +106,5 @@ ENV/
 *.ckpt.*
 
 test/python/model/ckpt/*
+
+TestLoggerResult.txt
