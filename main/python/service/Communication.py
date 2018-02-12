@@ -20,6 +20,7 @@ class Communication:
     # @output: bool, indicates a good receive operation or not
     def receiveModel(self, src, time_string, delete_src=False):
         dst = os.path.join(self.root, time_string)
+        
         # if the src folder does not exist
         if not FileUtils.isFolderExist(src):
             self.logger.error("The source folder %s does not exist! Receiving aborted!" % src)
@@ -44,6 +45,12 @@ class Communication:
     # @input: time_string: folder name
     def sendModel(self, time_string, dst, delete_src=False):
         src = os.path.join(self.root, time_string)
+
+        # if the src folder does not exist
+        if not FileUtils.isFolderExist(src):
+            self.logger.error("The source folder %s does not exist! Receiving aborted!" % src)
+            return False
+
         # if the destination exists:
         if FileUtils.isFolderExist(dst):
             self.logger.error("The destination folder %s exists! Sending aborted!" % dst)
