@@ -13,7 +13,7 @@ from main.python.utils import FileUtils
 class Communication:
     def __init__(self, root):
         self.root = root
-        self.logger = logging.
+        self.logger = logging.getLogger('Communication')
         return
 
     # receive raw data from server java code
