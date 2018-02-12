@@ -12,36 +12,41 @@ if root_path not in sys.path:
     sys.path.append(root_path)
 
 import logging, pdb
-from main.python.utils import FileUtils
+from main.python.utils import FileUtils, LogUtils
 
 # Variables
 output_file_name = 'test/python/utils/TestLogUtilsResult.txt'
 
 # Delete if exist
-fileUtils.deleteFileIfExist(output_file_name)
+FileUtils.deleteFileIfExist(output_file_name)
 
-# define loggers
-logger = logging.getLogger("this class")
-logger.setLevel(logging.DEBUG)
+# Initialize a logger
+LogUtils.initializeLogger(output_file_name)
 
-# Logger1: print in screen
-ch = logging.StreamHandler()
-ch.setLevel(logging.DEBUG)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-ch.setFormatter(formatter)
-logger.addHandler(ch)
+# # define loggers
+# logger = logging.getLogger("this class")
+# logger.setLevel(logging.DEBUG)
 
-# Logger2: output to file
-fh = logging.FileHandler(output_file_name)
-fh.setLevel(logging.DEBUG)
-fh.setFormatter(formatter)
-logger.addHandler(fh)
+# # Logger1: print in screen
+# ch = logging.StreamHandler()
+# ch.setLevel(logging.DEBUG)
+# formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+# ch.setFormatter(formatter)
+# logger.addHandler(ch)
+
+# # Logger2: output to file
+# fh = logging.FileHandler(output_file_name)
+# fh.setLevel(logging.DEBUG)
+# fh.setFormatter(formatter)
+# logger.addHandler(fh)
+
+logger = logging.getLogger("TEST")
 
 # Normal debugging log
 logger.debug("logger working")
 
 # Assertion log
-logUtils.loggedAssert(1==0)
+LogUtils.loggedAssert(logger, 1==0)
 
 # Assertion log
 # try:
