@@ -8,9 +8,18 @@ if root_path not in sys.path
     sys.path.append(root_path)
 
 import main.python.dataloader.DataLoader
-
+from main.python.service import Communication
 import pdb
 
 if __name__ == "__main__":
+    # variables
+    src_path = "test/resource/"
+    root = ""
+    fake_time_string = ""
+    dst_path = ""
 
+    # new a instance of Communication
+    com = Communication(root)
+    com.receiveModel(src_path, fake_time_string)
+    com.sendModel(fake_time_string, dst_path)
     pass
